@@ -1,1 +1,1 @@
-# alx-higher_level_programming with python
+Higher level programming, which invloves python, Javascript, HTML, CSS, SQL
