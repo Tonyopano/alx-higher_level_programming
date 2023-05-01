@@ -1,111 +1,117 @@
-# Python - Input/Output
+# SQL - Introduction
 
-In this project, I practiced file handling in Python. I used the builtin `with`,
-`open`, and `read` functions with the `json` module to read and write files and
-serialize and deserialize objects with JSON.
+This was my first project in which I began to work with SQL and relational
+databases. I began practicing introductory data definition and data
+manipulation language, making subqueries, and using functions.
 
-## Tests :heavy_check_mark:
+## Usage :dolphin:
 
-* [tests](./tests): Folder of test files. Provided by ALX.
+* Scripts [3-list_tables.sql](./3-list_tables.sql) forward take the database to query
+from as a MySQL command line argument.
 
-## Function Prototypes :floppy_disk:
+```
+$ cat 3-list_tables.sql | mysql -h localhost -u root -p mysql
+```
 
-Prototypes for functions written in this project:
-
-| File        | Prototype               |
-| ----------- | ----------------------- |
-| `0-read_file.py` | `def read_file(filename=""):` |
-| `1-number_of_lines.py` | `def number_of_lines(filename=""):` |
-| `2-read_lines.py` | `def read_lines(filename="", nb_lines=0):` |
-| `3-write_file.py` | `def write_file(filename="", text=""):` |
-| `4-append_write.py` | `def append_write(filename="", text=""):` |
-| `5-to_json_string.py` | `def to_json_string(my_obj):` |
-| `6-from_json_string.py` | `def from_json_string(my_str):` |
-| `7-save_to_json_file.py` | `def save_to_json_file(my_obj, filename):` |
-| `8-load_from_json_file.py` | `def load_from_json_file(filename):` |
-| `10-class_to_json.py` | `def class_to_json(obj):` |
-| `14-pascal_triangle.py` | `def pascal_triangle(n):` |
-| `100-append_after.py` | `def append_after(filename="", search_string="", new_string=""):` |
+* Tasks 101-103 query from the database [temperatures.sql](./temperatures.sql).
 
 ## Tasks :page_with_curl:
 
-* **0. Read file**
-  * [0-read_file.py](./0-read_file.py): Python function that prints the contents of a UTF8 text
-  file to standard output.
+* **0. List databases**
+  * [0-list_databases.sql](./0-list_databases.sql): MySQL script that lists all databases.
 
-* **1. Write to a file**
-  * [1-write_file.py](./1-write_file.py): Python function that writes a string to a UTF8 text
-  file and returns the number of characters written.
+* **1. Create a database**
+  * [1-create_database.sql](./1-create_database.sql): MySQL script that creates the database
+  `hbtn_0c_0`.
 
-* **2. Append to a file**
-  * [2-append_write.py](./2-append_write.py): Python function that appends a string to the end of a
-  UTF8 text file and returns the number of characters appended.
+* **2. Delete a database**
+  * [2-remove_databases.sql](./2-remove_databases.sql): MySQL script that deletes the database
+  `hbtn_0c_0`.
 
-* **3. To JSON string**
-  * [3-to_json_string.py](./3-to_json_string.py): Python function that returns the JSON string
-  representation of an object.
+* **3. List tables**
+  * [3-list_tables.sql](./3-list_tables.sql): MySQL script that lists all tables.
 
-* **4. From JSON string to Object**
-  * [4-from_json_string.py](./4-from_json_string.py): Python function that returns the Python object
-  represented by a JSON string.
+* **4. First table**
+  * [4-first_table.sql](./4-first_table.sql): MySQL script that creates a table `first_table`.
+  * Description:
+    * `id`: INT
+    * `name`: VARCHAR(256)
 
-* **5. Save Object to a file**
-  * [5-save_to_json_file.py](./5-save_to_json_file.py): Python function that writes an object to a text
-  file using JSON representation.
+* **5. Full description**
+  * [5-full_table.sql](./5-full_table.sql): MySQL script that prints the full description of the
+  table `first_table`.
 
-* **6. Create object from a JSON file**
-  * [6-load_from_json_file.py](./6-load_from_json_file.py): Python function that creates an object from a
-  `.json` file.
+* **6. List all in table**
+  * [6-list_values.sql](./6-list_values.sql): MySQL script that lists all rows of the table
+  `first_table`.
 
-* **7. Load, add, save**
-  * [7-add_item.py](./7-add_item.py): Python script that stores all command line arguments to a
-  Python list saved in the file `add_item.json`.
+* **7. First add**
+  * [7-insert_value.sql](./7-insert_value.sql): MySQL script that inserts a new row in the table
+  `first_table`.
+  * Description:
+    * `id` = `89`
+    * `name` = `Best School`
 
-* **8. Class to JSON**
-  * [8-class_to_json.py](./8-class_to_json.py): Python function that returns the dictionary
-  description for simple Python data structures (lists, dictionaries, strings,
-  integers and booleans).
+* **8. Count 89**
+  * [8-count_89.sql](./8-count_89.sql): MySQL script that displays the number records with `id =
+  89` in the table `first_table`.
 
-* **9. Student to JSON**
-  * [9-student.py](./9-student.py): Python class `Student` that defines a student. Includes:
-    * Public instance attributes `first_name`, `last_name`, and `age`.
-    * Instantiation with `first_name`, `last_name`, and `age`:
-    `def __init__(self, first_name, last_name, age):`.
-    * Public method `def to_json(self):` that returns the dictionary
-    representation of a `Student` instance.
+* **9. Full creation**
+  * [9-full_creation.sql](./9-full_creation.sql): MySQL script that creates and fills a table
+  `second_table`.
+  * Description:
+    * `id`: INT
+    * `name`: VARCHAR(256)
+    * `score`: INT
+  * Records:
+    * `id` = 1, `name` = "John", `score` = 10
+    * `id` = 2, `name` = "Alex", `score` = 3
+    * `id` = 3, `name` = "Bob", `score` = 14
+    * `id` = 4, `name` = "George", `score` = 8
 
-* **10. Student to JSON with filter**
-  * [10-student.py](./10-student.py): Python class `Student` that defines a student. Builds on
-  [9-student.py](./9-student.py) with:
-    * Public method `def to_json(self, attrs=None):` that returns the
-    dictionary representation of a `Student` instance.
-    * If `attrs` is a list of strings, only the attributes listed are
-    represented in the dictionary.
+* **10. List by best**
+  * [10-top_score.sql](./10-top_score.sql): MySQL script that lists the `score` and `name` of all
+  records of the table `second_table` in order of descending `score`.
 
-* **11. Student to disk and reload**
-  * [11-student.py](./11-student.py): Python class `Student` that defines a student. Builds on
-  [10-student.py](./10-student.py) with:
-    * Public method `def reload_from_json(self, json):` that replaces all
-    attributes of the `Student` instance using the key/value pairs listed in `json`.
-    * The method assumes `json` is a dictionary containing attributes with
-    name/value corresponding to key/value.
+* **11. Select the best**
+  * [11-best_score.sql](./11-best_score.sql): MySQL script that lists the `score` and `name` of all
+  records with a `score >= 10` in the table `second_table` in order of descending score.
 
-* **12. Pascal's Triangle**
-  * [12-pascal_triangle.py](./12-pascal_triangle.py): Python function that returns a list of lists of
-  integers representing Pascal's triangle of size `n`.
-  * Assumes the size parameter `n` is an integer.
-  * If `n` is less than or equal to `0`, returns an empty list.
+* **12. Cheating is bad**
+  * [12-no_cheating.sql](./12-no_cheating.sql): MySQL script that updates the score of Bob to 10
+  the table `second_table`.
 
-* **13. Search and update**
-  * [100-append_after.py](./100-append_after.py): Python function that inserts a line of text to a
-  file after each line containing a specified string.
+* **13. Score too low**
+  * [13-change_class.sql](./13-change_class.sql): MySQL script that removes all records with a
+  `score <= 5` in the table `second_table`.
 
-* **14. Log parsing**
-  * [101-stats.py](./101-stats.py): Python script that reads lines from standard input. After
-  every 10 lines or the input of a keyboard interruption (`CTRL + C`), computes the
-  following metrics:
-    * Total file size up that point: `File size: <total size>`
-    * Status code of each read line, printed in ascending order:
-    `<status code>: <number>`
-  * Input format: `<IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
-  <status code> <file size>`
+* **14. Average**
+  * [14-average.sql](./14-average.sql): MySQL script that computes the average `score` of all
+  records in the table `second_table`.
+
+* **15. Number by score**
+  * [15-groups.sql](./15-groups.sql): MySQL script that lists the `score` and number of records
+  with the same score in the table `second_table` in order of descending count.
+
+* **16. Say my name**
+  * [16-no_link.sql](./16-no_link.sql): MySQL script that lists the `score` and `name` of all
+  records in the table `second_table` in order of descending `score`.
+  * Does not display rows without a `name` value.
+
+* **17. Go to UTF8**
+  * [100-move_to_utf8.sql](./100-move_to_utf8.sql): MySQL script that converts the `hbtn_0c_0`
+  database to UTF8.
+
+[This link](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/272/temperatures.sql) was used for the following tasks:
+
+* **18. Temperatures #0**
+  * [101-avg_temperatures.sql](./101-avg_temperatures.sql): MySQL script that displays the average
+  temperature (Fahrenheit) by city in descending order.
+
+* **19. Temperatures #1**
+  * [102-top_city.sql](./102-top_city.sql): MySQL script that displays the three cities with the
+  highest average temperature from July to August in descending order.
+
+* **20. Temperature #2**
+  * [103-max_state.sql](./103-max_state.sql): MySQL script that displays the max temperature of each
+  state in order of state name.
